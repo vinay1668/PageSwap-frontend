@@ -14,7 +14,7 @@ function Nav() {
   const handleConnect = async () => {
     try {
       const provider = new Web3.providers.HttpProvider(
-        "https://mainnet.infura.io/v3/e2ca1f93a55347e080242d50c6823371"
+        `https://mainnet.infura.io/v3/${process.env.API_KEY}`
       );
       const web3 = new Web3(provider);
       if (typeof window.ethereum !== "undefined") {
@@ -43,7 +43,10 @@ function Nav() {
         <input
           type="text"
           class="py-2 pl-8 pr-2 rounded-lg bg-white shadow focus:outline-none focus:shadow-outline w-96"
-          placeholder="Search for books, NFTs or users"
+          placeholder="Search for books, NFT's or users"
+          onClick={() => {
+            console.log("hello");
+          }}
         />
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
           <path
@@ -57,7 +60,9 @@ function Nav() {
       {/* Explore, Buy and Sell */}
 
       <div class="flex flex-row justify-around items-center p-4">
-        <h2 class="text-base font-semibold text-gray-500 mx-4">Explore</h2>
+        <h2 class="text-base font-semibold text-gray-500 mx-4 cursor-pointer">
+          Explore
+        </h2>
         <h2 class="text-base font-semibold text-gray-500 mx-4">Buy</h2>
         <h2 class="text-base font-semibold text-gray-500 mx-4">Sell</h2>
       </div>
