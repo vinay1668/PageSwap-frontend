@@ -31,74 +31,71 @@ function Carousel() {
 
   return (
     <div
-      className="h-lg w-lg m-10  rounded-lg"
+      className="h-lg w-lg m-10 rounded-lg relative"
       style={{ height: "500px", backgroundColor: "#EEEEEE" }}
     >
-      <div className="flex flex-row relative">
-        <img
-          className="rounded-lg object-cover"
-          src={images[currentImage]}
-          alt="carousel"
-          style={{
-            width: "350px",
-            height: "400px",
-            margin: "30px",
-            marginLeft: "10%",
-            marginTop: "60px",
-            objectFit: "contain",
-          }}
-        />
-        <div className="mt-20 ml-60">
-          <h1
-            // style={{ marginTop: "80px", marginLeft: "80px" }}
-            className="text-5xl font-[500] font-poppins"
+      <div className="flex flex-row">
+        <div className="flex items-center justify-end">
+          <button
+            className="bg-gray-900 bg-opacity-25 hover:bg-opacity-50 rounded-full p-2 transition-colors duration-300"
+            onClick={goToPreviousImage}
           >
-            Animal Farm
-          </h1>
-          <p className="mt-2 font-[500] font-wix">by George Orwell</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
 
-      <div className="absolute inset-0 flex items-center justify-between">
-        <button
-          className="bg-gray-900 bg-opacity-25 hover:bg-opacity-50 rounded-full p-2 transition-colors duration-300"
-          onClick={goToPreviousImage}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
+        <div className="flex-1 flex flex-row justify-center items-center">
+          <img
+            className="rounded-lg object-cover"
+            src={images[currentImage]}
+            alt="carousel"
+            style={{
+              width: "350px",
+              height: "400px",
+              margin: "30px",
+              objectFit: "contain",
+            }}
+          />
+          <div className="mt-20 ml-60">
+            <h1 className="text-5xl font-[500] font-poppins">Animal Farm</h1>
+            <p className="mt-2 font-[500] font-wix">by George Orwell</p>
+          </div>
+        </div>
 
-        <button
-          className="bg-gray-900 bg-opacity-25 hover:bg-opacity-50 rounded-full p-2 transition-colors duration-300"
-          onClick={goToNextImage}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="flex items-center justify-start">
+          <button
+            className="bg-gray-900 bg-opacity-25 hover:bg-opacity-50 rounded-full p-2 transition-colors duration-300"
+            onClick={goToNextImage}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
